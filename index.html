@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html" />
+<title>博客首页</title>
+<style type="text/css">
+
+	
+/*头部*/
+.desc{
+	font-size: 18px;
+    line-height: 34px;
+    border-left: 1px solid #ccc;
+    position: absolute;
+    left: 200px;
+    top:35px;
+    padding-left: 20px;
+    font-weight:bold;
+}
+
+header a img {
+	width:200px;
+	margin-left:100px;
+	margin-top:10px;
+	float:left;
+	}
+.title_pic{
+	 margin-top:10px;
+	 margin-left:20px;
+	 float:left;}
+
+
+
+a,fieldset,img{
+	border:0;
+	}
+a{
+	color:#221919;
+	text-decoration:none;
+	outline:none;
+	}
+a:hover{
+	color:#3366cc;
+	text-decoration:underline;
+	}
+body{
+	font-size:24px;
+	color:#B7AEB4;
+	}
+body a.link,body h1,body p{
+	-webkit-transition:opacity 0.5s ease-in-out;
+	-moz-transition:opacity 0.5s ease-in-out;
+	transition:opacity 0.5s ease-in-out;
+	}
+#wrapper{
+	text-align:center;
+	margin:47px auto;
+	width:594px;
+	}
+a.link{
+	text-shadow:0px 1px 2px white;
+	font-weight:600;
+	color:#3366cc;opacity:0;
+	}
+h1{
+	text-shadow:0px 1px 2px white;
+	font-size:24px;
+	opacity:0;
+	}
+p{
+	text-shadow:0px 1px 2px white;
+	font-weight:normal;
+	font-weight:200;
+	opacity:0;
+	}
+.fade{
+	opacity:1;
+	}
+@media only screen and (min-device-width:320px) and (max-device-width:480px){
+	#wrapper{margin:40px auto;text-align:center;width:280px;}
+}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	if (!$.browser.msie){
+		$("img").addClass('fade').delay(800).queue(function(next){
+			$("h1, p").addClass("fade");
+			$("a.link").css("opacity", 1);
+			next();
+		});
+	}else{
+		$("img, h1, p").addClass('fade');
+		$('a.link').css('opacity', 1);
+	}
+});
+</script>
+</head>
+
+<body>
+<header>
+</header>
+
+    <div id="wrapper">
+        <a href="http://39.97.253.137:8443"><img src="images/bingo.png"></a>
+        <div>
+            <h1 style="color:black">欢迎来到博客首页</h1>
+            <p>如果无法正常跳转<a style="color:#ff6600;" href="http://39.97.253.137:8443">请点击这里！</a></p>
+            <a class="link" href="http://39.97.253.137:8443" onclick="history.go(-1)"><span id="sec">5</span> 秒后前往博客首页</a>
+			<br /><br /><br />
+			<a class="link" href="http://39.97.253.137:8443">立即前往</a>
+        </div>
+    </div>
+	<div style="float:left;  display:inline"><img src="images/1.gif"/></div>
+	<div style="float:right; display:inline"><img src="images/1.gif"/></div>
+	
+	<script type="text/javascript">
+	$(function () {            
+	   setTimeout("lazyGo();", 1000);
+	});
+	function lazyGo() {
+		var sec = $("#sec").text();
+		$("#sec").text(--sec);
+		if (sec > 0)
+			setTimeout("lazyGo();", 1000);
+		else
+			window.location.href = "http://39.97.253.137:8443";
+	}
+	</script>
+
+	
+</body>
+</html>
